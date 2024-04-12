@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors()); // This enables CORS for all routes
+app.use(express.static('public'));
 
 app.get('/employees', (req, res) => {
     db.query('SELECT * FROM employees', (err, results) => {
