@@ -20,6 +20,13 @@ app.get('/tickets', (req, res) => {
     });
 });
 
+app.get('/products', (req, res) => {
+    db.query('SELECT * FROM products', (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
